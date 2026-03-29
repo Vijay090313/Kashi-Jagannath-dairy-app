@@ -1,0 +1,17 @@
+{
+  "short_name": "KJ Dairy",
+  "name": "Kashi Jagannath Dairy",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#1a120b",
+  "theme_color": "#3c2a21",
+  "display": "standalone",
+  "orientation": "portrait"
+}
