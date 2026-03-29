@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Kashi Jagannath Dairy</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3c2a21">
+    <link rel="apple-touch-icon" href="logo.png">
+    
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a120b; color: #f1f1f1; margin: 0; padding-bottom: 50px; }
+        .header { background: #3c2a21; color: #f1c40f; padding: 20px; text-align: center; border-bottom: 3px solid #f1c40f; position: sticky; top: 0; z-index: 100; }
+        .ghee-info { background: #2c1e14; padding: 20px; margin: 15px; border-radius: 12px; border-left: 5px solid #f1c40f; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .card { background: #262626; margin: 20px; border-radius: 15px; overflow: hidden; border: 1px solid #444; }
+        .card img { width: 100%; height: 250px; object-fit: cover; }
+        .info { padding: 20px; }
+        .price { color: #2ecc71; font-size: 1.5em; font-weight: bold; display: block; margin-bottom: 10px; }
+        .controls { display: flex; align-items: center; gap: 25px; margin: 20px 0; }
+        .btn-qty { width: 50px; height: 50px; border-radius: 10px; border: none; background: #f1c40f; color: #1a120b; font-size: 1.5em; font-weight: bold; cursor: pointer; }
+        .order-btn { background: #27ae60; color: white; border: none; width: 100%; padding: 18px; border-radius: 10px; font-size: 1.1em; font-weight: bold; cursor: pointer; box-shadow: 0 4px 0 #1e8449; }
+        .order-btn:active { transform: translateY(2px); box-shadow: 0 2px 0 #1e8449; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Kashi Jagannath Dairy</h1>
+    </div>
+
+    <div class="ghee-info">
+        <h3>✨ Pure Bilona Desi Ghee</h3>
+        <p><strong>A Dairy Product of Awadh.</strong> Made using traditional methods for maximum purity and taste.</p>
+    </div>
+
+    <div class="card">
+        <img src="cow2.jpg" alt="Cow Ghee">
+        <div class="info">
+            <h2>Bilona Cow Ghee</h2>
+            <span class="price" id="price-cow">₹3000 / 1L</span>
+            <div class="controls">
+                <button class="btn-qty" onclick="changeQty('cow', -1)">-</button>
+                <span id="qty-cow" style="font-size: 1.4em; font-weight: bold;">1</span>
+                <button class="btn-qty" onclick="changeQty('cow', 1)">+</button>
+            </div>
+            <button class="order-btn" onclick="sendOrder('Cow Ghee')">Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <img src="buffalo.jpg" alt="Buffalo Ghee">
+        <div class="info">
+            <h2>Bilona Buffalo Ghee</h2>
+            <span class="price" id="price-buffalo">₹1600 / 1L</span>
+            <div class="controls">
+                <button class="btn-qty" onclick="changeQty('buffalo', -1)">-</button>
+                <span id="qty-buffalo" style="font-size: 1.4em; font-weight: bold;">1</span>
+                <button class="btn-qty" onclick="changeQty('buffalo', 1)">+</button>
+            </div>
+            <button class="order-btn" onclick="sendOrder('Buffalo Ghee')">Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js');
+            });
+        }
+    </script>
+</body>
+</html>
